@@ -20,15 +20,18 @@
             background: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Changed to flex-start for scrolling */
             color: white;
             text-align: center;
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-bottom: 20px; /* Ensure space for content at bottom */
         }
 
         .content {
             padding: 20px;
             max-width: 600px;
             width: 90%;
+            margin: 0 auto;
             position: relative;
         }
 
@@ -54,6 +57,7 @@
             border: none;
         }
 
+        /* Media Query for First Breakpoint (768px width) */
         @media (max-width: 768px) {
             h1 {
                 font-size: 3em;
@@ -66,12 +70,47 @@
             }
         }
 
+        /* Media Query for Second Breakpoint (480px width) */
         @media (max-width: 480px) {
             h1 {
                 font-size: 2.5em;
             }
             .form-container iframe {
                 height: 500px;
+            }
+        }
+
+        /* Media Query for iPad Landscape (1024x768 and smaller landscape screens) */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .content {
+                max-width: 450px;
+                width: 80%;
+            }
+            h1 {
+                font-size: 3.5em;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            .form-container iframe {
+                height: 550px;
+            }
+        }
+
+        /* Additional Media Query for Smaller Landscape Screens (e.g., older iPads) */
+        @media (min-width: 600px) and (max-width: 767px) and (orientation: landscape) {
+            .content {
+                max-width: 400px;
+                width: 75%;
+            }
+            h1 {
+                font-size: 3em;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            .form-container iframe {
+                height: 450px;
             }
         }
     </style>
