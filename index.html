@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,7 +31,7 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out; /* Default transition for all slides */
+            transition: opacity 0.5s ease-in-out;
         }
 
         .slide.active {
@@ -94,11 +55,11 @@
 
         .content-wrapper {
             position: relative;
-            padding: 30px; /* Space for the border */
-            background-image: url('https://via.placeholder.com/150x150.png?text=Floral+Border');
-            background-repeat: repeat-x repeat-y; /* Stretch horizontally and vertically */
-            background-size: 100% 100px; /* Stretch to full width, fixed height for top/bottom; adjust as needed */
-            background-position: 0 0, 0 100%; /* Top and bottom borders */
+            padding: 30px;
+            background-image: url('./photos/border.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top center;
         }
 
         .content {
@@ -108,7 +69,7 @@
             padding: 20px;
             position: relative;
             z-index: 2;
-            background: rgba(0, 0, 0, 0.3); /* Slight background for readability */
+            background: rgba(0, 0, 0, 0.3);
         }
 
         h1 {
@@ -156,14 +117,12 @@
             }
             .content-wrapper {
                 padding: 20px;
-                background-size: 100% 80px;
             }
         }
 
         @media (max-width: 480px) {
             .content-wrapper {
                 padding: 15px;
-                background-size: 100% 60px;
             }
             h1 {
                 font-size: 2.5em;
@@ -213,7 +172,6 @@
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
 
-        // Preload the first image
         const firstImage = new Image();
         firstImage.src = './photos/1.jpg';
 
@@ -221,15 +179,13 @@
             slides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
                 if (i === 0 && index === 0) {
-                    // Instant transition for the first slide
                     slide.style.transition = 'opacity 0s';
                 } else {
-                    slide.style.transition = 'opacity 2s ease-in-out'; // Default transition for others
+                    slide.style.transition = 'opacity 2s ease-in-out';
                 }
             });
         }
 
-        // Show the first slide immediately when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             showSlide(0);
         });
@@ -239,8 +195,42 @@
             showSlide(currentSlide);
         }
 
-        // Set a longer interval for slower transitions after the first image
-        setInterval(nextSlide, 7000); // 7 seconds between slides
+        setInterval(nextSlide, 7000);
+    </script>
+    <script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
     </script>
 </body>
 </html>
