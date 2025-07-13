@@ -62,12 +62,12 @@
 
         .flower-border {
             position: absolute;
-            top: -50px; /* Last set position, approximately 1.3 cm */
+            top: -2rem; /* Relative to font size, adjustable */
             left: 50%;
             transform: translateX(-50%);
-            width: 100%;
+            width: 110%; /* Slightly wider than content */
             max-width: 600px;
-            z-index: 10; /* Highest z-index to be in front of all layers */
+            z-index: 10; /* In front of content but below button */
         }
 
         .content {
@@ -106,15 +106,15 @@
             transition: background-color 0.3s;
             text-decoration: none;
             display: inline-block;
-            z-index: 4; /* Below flowers but above content */
+            z-index: 11; /* Highest z-index, on top of everything */
         }
 
         .rsvp-button:hover {
             background-color: #ffffff66;
         }
 
-        /* Media Query for First Breakpoint (768px width, optional 858px height) */
-        @media (max-width: 768px) and (max-height: 858px) {
+        /* Media Query for First Breakpoint (768px width) */
+        @media (max-width: 768px) {
             h1 {
                 font-size: 3em;
             }
@@ -130,12 +130,12 @@
             }
             .flower-border {
                 max-width: 400px;
-                top: -40px; /* Adjusted for smaller screens */
+                top: -1.5rem; /* Adjusted relative to font size */
             }
         }
 
-        /* Media Query for Second Breakpoint (480px width, optional 858px height) */
-        @media (max-width: 480px) and (max-height: 858px) {
+        /* Media Query for Second Breakpoint (480px width) */
+        @media (max-width: 480px) {
             .content-wrapper {
                 padding: 15px;
             }
@@ -151,7 +151,7 @@
             }
             .flower-border {
                 max-width: 300px;
-                top: -30px; /* Further adjusted for small screens */
+                top: -1.2rem; /* Further adjusted relative to font size */
             }
         }
     </style>
