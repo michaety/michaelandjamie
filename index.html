@@ -56,11 +56,21 @@
         .content-wrapper {
             position: relative;
             padding: 30px;
+            z-index: 5; /* Increased to ensure it’s above .content */
+        }
+
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('./photos/border.png');
             background-repeat: no-repeat;
             background-size: contain;
             background-position: top center;
-            z-index: 4; /* Increased to ensure it's in front of .content */
+            z-index: 3; /* Places flowers in front of .content but behind text */
         }
 
         .content {
@@ -69,8 +79,8 @@
             margin: 0 auto;
             padding: 20px;
             position: relative;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.5); /* Increased opacity from 0.3 to 0.5 */
+            z-index: 4; /* Text stays above the flowers */
+            background: rgba(0, 0, 0, 0.1); /* Increased opacity to 0.6 */
         }
 
         h1 {
@@ -99,6 +109,7 @@
             transition: background-color 0.3s;
             text-decoration: none;
             display: inline-block;
+            z-index: 5; /* Ensures button is above flowers */
         }
 
         .rsvp-button:hover {
