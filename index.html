@@ -94,12 +94,11 @@
 
         .content-wrapper {
             position: relative;
-            padding: 30px; /* Space for the border */
-            background-image: url('./photos/border.png');
-            background-repeat: repeat-x repeat-y; /* Stretch horizontally and vertically */
-            background-size: 100% 100px; /* Stretch to full width, fixed height for top/bottom; adjust as needed */
-            background-position: 0 0, 0 100%; /* Top and bottom borders */
-        }
+            padding: 30px;
+            background-image: url('./photos/border.png'), url('./photos/border.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top center, bottom center;
 
         .content {
             max-width: 500px;
