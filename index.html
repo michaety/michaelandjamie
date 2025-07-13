@@ -77,7 +77,7 @@
             padding: 20px;
             position: relative;
             z-index: 5; /* Text above flowers */
-            background: rgba(0, 0, 0, 0.6); /* Maintains reduced transparency */
+            background: rgba(0, 0, 0, 0.3); /* Reverted to original transparency */
         }
 
         h1 {
@@ -164,7 +164,9 @@
         <div class="slide" style="background-image: url('./photos/13.jpg')"></div>
         <div class="overlay">
             <div class="content-wrapper">
-                <img src="./photos/border.png" alt="Flower Border" class="flower-border">
+                <div class="flower-border">
+                    <img src="./photos/border.png" alt="Flower Border">
+                </div>
                 <div class="content">
                     <h1>J & M</h1>
                     <h3>You are Invited to Jamie and Michael's Wedding!</h3>
