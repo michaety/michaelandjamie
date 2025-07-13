@@ -166,6 +166,60 @@
                 max-width: 150px;
             }
         }
+
+        /* Media Query for iPad Landscape (1024x768 and smaller landscape screens) */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .content {
+                max-width: 450px; /* Slightly reduced to fit landscape */
+                width: 80%; /* Adjusted width for landscape */
+            }
+            h1 {
+                font-size: 3.5em; /* Slightly reduced */
+            }
+            h2, h3 {
+                font-size: 1.3em;
+            }
+            .rsvp-button {
+                font-size: 1.1em;
+                padding: 8px 15px;
+            }
+            .content-wrapper {
+                padding: 25px;
+            }
+            .flower-border1 {
+                max-width: 225px; /* Scaled down but proportional */
+            }
+            .flower-border2 {
+                max-width: 225px; /* Scaled down but proportional */
+            }
+        }
+
+        /* Additional Media Query for Smaller Landscape Screens (e.g., older iPads) */
+        @media (min-width: 600px) and (max-width: 767px) and (orientation: landscape) {
+            .content {
+                max-width: 400px; /* Further reduced */
+                width: 75%;
+            }
+            h1 {
+                font-size: 3em;
+            }
+            h2, h3 {
+                font-size: 1.1em;
+            }
+            .rsvp-button {
+                font-size: 1em;
+                padding: 7px 14px;
+            }
+            .content-wrapper {
+                padding: 20px;
+            }
+            .flower-border1 {
+                max-width: 200px;
+            }
+            .flower-border2 {
+                max-width: 200px;
+            }
+        }
     </style>
 </head>
 <body>
