@@ -113,7 +113,8 @@
             background-color: #ffffff66;
         }
 
-        @media (max-width: 768px) {
+        /* Media Query for First Breakpoint (768px width, optional 858px height) */
+        @media (max-width: 768px) and (max-height: 858px) {
             h1 {
                 font-size: 3em;
             }
@@ -226,29 +227,4 @@
         if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
             try {
                 var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-    </script>
-</body>
-</html>
+                var firstSheetName = workbook.S
