@@ -102,7 +102,7 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        .rsvp-button {
+        .rsvp-button, .calendar-button {
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 1.2em;
@@ -117,7 +117,7 @@
             z-index: 11;
         }
 
-        .rsvp-button:hover {
+        .rsvp-button:hover, .calendar-button:hover {
             background-color: #ffffff66;
         }
 
@@ -143,6 +143,10 @@
             background-color: #ffffff66;
         }
 
+        .calendar-button.hidden {
+            display: none;
+        }
+
         .button-container {
             display: flex;
             justify-content: center;
@@ -154,7 +158,7 @@
         @media (max-width: 1024px) {
             h1 { font-size: 3.5em; }
             h2, h3 { font-size: 1.3em; }
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 font-size: 1.1em;
                 padding: 8px 15px;
             }
@@ -166,7 +170,7 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.8em; }
             h2, h3 { font-size: 1.1em; }
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 font-size: 1em;
                 padding: 8px 14px;
             }
@@ -178,7 +182,7 @@
         @media (max-width: 480px) {
             h1 { font-size: 2.2em; }
             h2, h3 { font-size: 1em; }
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 font-size: 0.9em;
                 padding: 6px 12px;
             }
@@ -192,7 +196,7 @@
             .content { max-width: 550px; padding: 25px; }
             h1 { font-size: 3.8vw; }
             h2, h3 { font-size: 1.5vw; }
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 font-size: 1.2vw;
                 padding: 10px 2vw;
             }
@@ -204,7 +208,7 @@
             .content { max-width: 600px; }
             h1 { font-size: 3.5vw; }
             h2, h3 { font-size: 1.3vw; }
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 font-size: 1vw;
                 padding: 10px 2vw;
             }
@@ -217,7 +221,7 @@
             .content { max-width: 800px; }
             h1 { font-size: 3.2vw; }
             h2, h3 { font-size: 1.2vw; }
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 font-size: 1vw;
                 padding: 10px 2vw;
             }
@@ -230,7 +234,7 @@
             .content { max-width: 900px; }
             h1 { font-size: 2.8vw; }
             h2, h3 { font-size: 1vw; }
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 font-size: 0.9vw;
                 padding: 10px 1.5vw;
             }
@@ -239,7 +243,7 @@
         }
 
         @media (min-aspect-ratio: 21/9) {
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 white-space: nowrap;
                 max-width: 100%;
                 box-sizing: border-box;
@@ -249,7 +253,7 @@
         }
 
         @media (min-aspect-ratio: 32/9) {
-            .rsvp-button, .calendar-button select {
+            .rsvp-button, .calendar-button, .calendar-button select {
                 font-size: 0.9vw;
                 padding: 10px 1.5vw;
                 white-space: nowrap;
@@ -323,7 +327,7 @@
                     <h2>Reception - 6:30pm</h2>
                     <div class="button-container">
                         <a href="rsvp.html" class="rsvp-button">RSVP</a>
-                        <a id="calendarLink" class="rsvp-button" href="#" onclick="handleAddToCalendar(event)">Add to Calendar</a>
+                        <a id="calendarLink" class="rsvp-button calendar-button hidden" href="#" onclick="handleAddToCalendar(event)">Add to Calendar</a>
                     </div>
                 </div>
                 <img src="./photos/border1.png" alt="Top Left Flower Border" class="flower-border1">
@@ -423,12 +427,10 @@
                 const ua = navigator.userAgent.toLowerCase();
                 if (/iphone|ipad|ipod/.test(ua)) return 'iOS';
                 if (/android/.test(ua)) return 'Android';
-                if (/win/.test(ua)) return 'Windows';
-                if (/mac/.test(ua)) return 'macOS';
-                return 'Other';
+                return 'Desktop';
             } catch (e) {
                 console.error('OS detection failed:', e);
-                return 'Other';
+                return 'Desktop';
             }
         }
 
@@ -439,25 +441,23 @@
             const googleLinks = [
                 {
                     name: 'Ceremony (4:00pm)',
-                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony&dates=20251101T160000/20251101T163000&details=Join+us+for+the+wedding+ceremony+at+Stargazer+Lawn!&location=Stargazer+Lawn&sf=true&output=xml'
+                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony&dates=20251101T160000/20251101T163000&details=Join+us+for+the+wedding+ceremony+at+Stargazer+Lawn!&location=Stargazer+Lawn%2C+Centennial+Parklands%2C+Sydney%2C+NSW+2021%2C+Australia&sf=true&output=xml'
                 },
                 {
                     name: 'Canapés (5:30pm)',
-                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Canap%C3%A9s&dates=20251101T173000/20251101T180000&details=Enjoy+drinks+and+bites+after+the+ceremony!&location=12-Micron&sf=true&output=xml'
+                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Canap%C3%A9s&dates=20251101T173000/20251101T180000&details=Enjoy+drinks+and+bites+after+the+ceremony!&location=12-Micron%2C+Tower+1%2C+Barangaroo+Ave%2C+Barangaroo%2C+NSW+2000%2C+Australia&sf=true&output=xml'
                 },
                 {
                     name: 'Reception (6:30pm)',
-                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception&dates=20251101T183000/20251101T230000&details=Dinner,+dancing,+and+celebration!&location=12-Micron&sf=true&output=xml'
+                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception&dates=20251101T183000/20251101T230000&details=Dinner%2C+dancing%2C+and+celebration!&location=12-Micron%2C+Tower+1%2C+Barangaroo+Ave%2C+Barangaroo%2C+NSW+2000%2C+Australia&sf=true&output=xml'
                 },
                 {
                     name: 'All Events (Download ICS)',
                     url: icsUrl
                 }
             ];
-            const addEventUrl = 'https://addevent.com/redirect/your-event-id'; // Replace with AddEvent.com URL if used
 
             const calendarLink = document.getElementById('calendarLink');
-            const container = calendarLink.parentElement;
 
             if (os === 'iOS') {
                 window.location.href = icsUrl;
@@ -468,16 +468,17 @@
                         ${googleLinks.map(link => `<option value="${link.url}">${link.name}</option>`).join('')}
                     </select>
                 `;
-            } else {
-                calendarLink.outerHTML = `
-                    <select onchange="if(this.value) window.location.href=this.value" class="rsvp-button calendar-button">
-                        <option value="">Add to Calendar</option>
-                        <option value="${icsUrl}">Download ICS File</option>
-                        ${addEventUrl ? `<option value="${addEventUrl}">Add via AddEvent.com</option>` : ''}
-                    </select>
-                `;
             }
         }
+
+        // Show "Add to Calendar" button only on mobile devices
+        document.addEventListener('DOMContentLoaded', () => {
+            const os = getDeviceOS();
+            const calendarLink = document.getElementById('calendarLink');
+            if (os === 'iOS' || os === 'Android') {
+                calendarLink.classList.remove('hidden');
+            }
+        });
     </script>
 </body>
 </html>
