@@ -121,224 +121,206 @@
             background-color: #ffffff66;
         }
 
-/* Base: Desktop and larger tablets */
-.flower-border1,
-.flower-border2 {
-    max-width: 225px;
-}
+/* Base styles are your defaults */
 
-/* Tablets (portrait & smaller landscape) */
+/* Tablets (<=1024px) */
 @media (max-width: 1024px) {
     h1 {
         font-size: 3.5em;
     }
-
     h2, h3 {
         font-size: 1.3em;
     }
-
     .rsvp-button {
         font-size: 1.1em;
         padding: 8px 15px;
     }
-
     .content {
         max-width: 450px;
+        padding: 20px;
     }
-
     .flower-border1,
     .flower-border2 {
         max-width: 200px;
     }
+    .countdown-timer {
+        font-size: 1em;
+        padding: 10px 20px;
+        gap: 15px;
+    }
 }
 
-/* Phones (large and small) */
+/* Phones (<=768px) */
 @media (max-width: 768px) {
     h1 {
-        font-size: 3em;
+        font-size: 2.8em;
     }
-
     h2, h3 {
         font-size: 1.1em;
     }
-
     .rsvp-button {
         font-size: 1em;
         padding: 8px 14px;
     }
-
     .content {
         max-width: 400px;
+        padding: 15px;
     }
-
     .flower-border1,
     .flower-border2 {
         max-width: 160px;
     }
+    .countdown-timer {
+        font-size: 0.95em;
+        padding: 8px 18px;
+        gap: 12px;
+    }
 }
 
-/* Small phones (e.g. iPhone SE) */
+/* Small phones (<=480px) */
 @media (max-width: 480px) {
     h1 {
-        font-size: 2.4em;
+        font-size: 2.2em;
     }
-
     h2, h3 {
         font-size: 1em;
     }
-
     .rsvp-button {
         font-size: 0.9em;
         padding: 6px 12px;
     }
-
     .content {
         max-width: 90%;
-        padding: 15px;
+        padding: 12px 15px;
     }
-
     .flower-border1,
     .flower-border2 {
         max-width: 120px;
     }
-}
-/* Base styles already defined above */
-
-/* Small tablets and large phones (portrait) */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5em;
-    }
-    h2, h3 {
-        font-size: 1.1em;
-    }
-    .rsvp-button {
-        font-size: 1em;
-        padding: 8px 16px;
-    }
-    .flower-border1,
-    .flower-border2 {
-        max-width: 160px;
+    .countdown-timer {
+        font-size: 0.85em;
+        padding: 6px 15px;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 }
 
-/* Phones (very narrow screens) */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2em;
-    }
-    h2, h3 {
-        font-size: 1em;
-    }
-    .rsvp-button {
-        font-size: 0.9em;
-        padding: 6px 12px;
-    }
-    .flower-border1,
-    .flower-border2 {
-        max-width: 130px;
-    }
-}
+/* Wide Screens and Aspect Ratios */
 
-/* Wide Screens (desktop/laptop or tablets in landscape) */
+/* Desktop, tablets landscape and wider: aspect ratio >= 4:3 */
 @media (min-aspect-ratio: 4/3) {
     .content-wrapper {
-        padding: 40px;
+        padding: 40px 30px;
     }
-
     .content {
         max-width: 550px;
+        padding: 25px;
     }
-
     h1 {
-        font-size: 3.8vw; /* Responsive to width */
+        font-size: 3.8vw;
     }
-
     h2, h3 {
         font-size: 1.5vw;
     }
-
     .rsvp-button {
         font-size: 1.2vw;
         padding: 10px 2vw;
     }
-
     .flower-border1,
     .flower-border2 {
         max-width: 220px;
     }
+    .countdown-timer {
+        font-size: 1.1vw;
+        padding: 12px 24px;
+        gap: 18px;
+    }
 }
 
-/* Ultra-wide displays (like 21:9 monitors) */
+/* Ultra-wide displays: aspect ratio >= 16:9 */
 @media (min-aspect-ratio: 16/9) {
     .content {
         max-width: 600px;
     }
-
     h1 {
         font-size: 3.5vw;
     }
-
+    h2, h3 {
+        font-size: 1.3vw;
+    }
+    .rsvp-button {
+        font-size: 1vw;
+        padding: 10px 2vw;
+    }
     .flower-border1,
     .flower-border2 {
         max-width: 240px;
     }
+    .countdown-timer {
+        font-size: 1vw;
+        padding: 10px 22px;
+        gap: 16px;
+    }
 }
+
+/* Ultra ultra-wide: aspect ratio >= 21:9 */
 @media (min-aspect-ratio: 21/9) {
-  .content-wrapper {
-    padding: 50px 80px;
-  }
-
-  .content {
-    max-width: 800px;
-  }
-
-  h1 {
-    font-size: 3.2vw;
-  }
-
-  h2, h3 {
-    font-size: 1.2vw;
-  }
-
-  .rsvp-button {
-    font-size: 1vw;
-    padding: 10px 2vw;
-  }
-
-  .flower-border1,
-  .flower-border2 {
-    max-width: 300px;
-  }
+    .content-wrapper {
+        padding: 50px 80px;
+    }
+    .content {
+        max-width: 800px;
+    }
+    h1 {
+        font-size: 3.2vw;
+    }
+    h2, h3 {
+        font-size: 1.2vw;
+    }
+    .rsvp-button {
+        font-size: 1vw;
+        padding: 10px 2vw;
+    }
+    .flower-border1,
+    .flower-border2 {
+        max-width: 300px;
+    }
+    .countdown-timer {
+        font-size: 0.95vw;
+        padding: 10px 28px;
+        gap: 20px;
+    }
 }
 
+/* Super ultra-wide: aspect ratio >= 32:9 */
 @media (min-aspect-ratio: 32/9) {
-  .content-wrapper {
-    padding: 60px 100px;
-  }
-
-  .content {
-    max-width: 900px;
-  }
-
-  h1 {
-    font-size: 2.8vw;
-  }
-
-  h2, h3 {
-    font-size: 1vw;
-  }
-
-  .rsvp-button {
-    font-size: 0.9vw;
-    padding: 10px 1.5vw;
-  }
-
-  .flower-border1,
-  .flower-border2 {
-    max-width: 340px;
-  }
+    .content-wrapper {
+        padding: 60px 100px;
+    }
+    .content {
+        max-width: 900px;
+    }
+    h1 {
+        font-size: 2.8vw;
+    }
+    h2, h3 {
+        font-size: 1vw;
+    }
+    .rsvp-button {
+        font-size: 0.9vw;
+        padding: 10px 1.5vw;
+    }
+    .flower-border1,
+    .flower-border2 {
+        max-width: 340px;
+    }
+    .countdown-timer {
+        font-size: 0.85vw;
+        padding: 10px 30px;
+        gap: 24px;
+    }
 }
+
 .countdown-timer {
     position: static; /* remove absolute positioning */
     padding: 12px 25px;
