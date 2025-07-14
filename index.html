@@ -423,6 +423,8 @@
                 const ua = navigator.userAgent.toLowerCase();
                 if (/iphone|ipad|ipod/.test(ua)) return 'iOS';
                 if (/android/.test(ua)) return 'Android';
+                if (/win/.test(ua)) return 'Windows';
+                if (/mac/.test(ua)) return 'macOS';
                 return 'Other';
             } catch (e) {
                 console.error('OS detection failed:', e);
@@ -467,7 +469,13 @@
                     </select>
                 `;
             } else {
-                window.location.href = addEventUrl || icsUrl;
+                calendarLink.outerHTML = `
+                    <select onchange="if(this.value) window.location.href=this.value" class="rsvp-button calendar-button">
+                        <option value="">Add to Calendar</option>
+                        <option value="${icsUrl}">Download ICS File</option>
+                        ${addEventUrl ? `<option value="${addEventUrl}">Add via AddEvent.com</option>` : ''}
+                    </select>
+                `;
             }
         }
     </script>
