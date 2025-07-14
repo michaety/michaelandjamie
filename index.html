@@ -121,6 +121,88 @@
             background-color: #ffffff66;
         }
 
+/* Base: Desktop and larger tablets */
+.flower-border1,
+.flower-border2 {
+    max-width: 225px;
+}
+
+/* Tablets (portrait & smaller landscape) */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 3.5em;
+    }
+
+    h2, h3 {
+        font-size: 1.3em;
+    }
+
+    .rsvp-button {
+        font-size: 1.1em;
+        padding: 8px 15px;
+    }
+
+    .content {
+        max-width: 450px;
+    }
+
+    .flower-border1,
+    .flower-border2 {
+        max-width: 200px;
+    }
+}
+
+/* Phones (large and small) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    h2, h3 {
+        font-size: 1.1em;
+    }
+
+    .rsvp-button {
+        font-size: 1em;
+        padding: 8px 14px;
+    }
+
+    .content {
+        max-width: 400px;
+    }
+
+    .flower-border1,
+    .flower-border2 {
+        max-width: 160px;
+    }
+}
+
+/* Small phones (e.g. iPhone SE) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.4em;
+    }
+
+    h2, h3 {
+        font-size: 1em;
+    }
+
+    .rsvp-button {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    .content {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .flower-border1,
+    .flower-border2 {
+        max-width: 120px;
+    }
+}
+
     </style>
 </head>
 <body>
