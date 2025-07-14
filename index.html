@@ -339,6 +339,39 @@
     max-width: 340px;
   }
 }
+.content {
+    position: relative; /* Ensure relative for absolute children */
+}
+
+.countdown-timer {
+    position: absolute;
+    top: -100px; /* Adjust vertical position above J & M */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    z-index: 15;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.countdown-timer div {
+    text-align: center;
+}
+
+.countdown-timer span {
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+}
 
 
     </style>
@@ -360,6 +393,14 @@
         <div class="overlay">
             <div class="content-wrapper">
                 <div class="content">
+                    <div class="content">
+    <div id="countdown" class="countdown-timer">
+        <div><span id="days">--</span><br>Days</div>
+        <div><span id="hours">--</span><br>Hours</div>
+        <div><span id="minutes">--</span><br>Minutes</div>
+        <div><span id="seconds">--</span><br>Seconds</div>
+    </div>
+
                     <h1>J & M</h1>
                     <h3>You are Invited to Jamie and Michael's Wedding!</h3>
                     <h1>1st November 2025</h1>
