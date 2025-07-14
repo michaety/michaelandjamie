@@ -67,7 +67,6 @@
     width: 50%;
     max-width: 225px;
     z-index: 10;
-    transform: translate(30%, 0%); /* Moved toward center */
 }
 
 .flower-border2 {
@@ -77,7 +76,6 @@
     width: 50%;
     max-width: 225px;
     z-index: 10;
-    transform: translate(-30%, -0%); /* Moved toward center */
 }
 
         .content {
@@ -123,132 +121,6 @@
             background-color: #ffffff66;
         }
 
-        /* Media Query for First Breakpoint (768px width) */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 3em;
-            }
-            h2, h3 {
-                font-size: 1.2em;
-            }
-            .rsvp-button {
-                font-size: 1em;
-                padding: 8px 16px;
-            }
-            .content-wrapper {
-                padding: 15px; /* Reduced from 20px to bring content up */
-            }
-            .flower-border1 {
-                max-width: 180px;
-            }
-            .flower-border2 {
-                max-width: 180px;
-            }
-        }
-
-        /* Media Query for Second Breakpoint (480px width) */
-        @media (max-width: 480px) {
-            .content-wrapper {
-                padding: 10px; /* Reduced from 15px to bring content up */
-            }
-            h1 {
-                font-size: 2.5em;
-            }
-            h2, h3 {
-                font-size: 1em;
-            }
-            .rsvp-button {
-                font-size: 0.9em;
-                padding: 6px 12px;
-            }
-            .flower-border1 {
-                max-width: 135px;
-            }
-            .flower-border2 {
-                max-width: 135px;
-            }
-        }
-
-        /* Media Query for iPad Landscape (1024x768 and smaller landscape screens) */
-        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-            .content {
-                max-width: 450px;
-                width: 80%;
-            }
-            h1 {
-                font-size: 3.5em;
-            }
-            h2, h3 {
-                font-size: 1.3em;
-            }
-            .rsvp-button {
-                font-size: 1.1em;
-                padding: 8px 15px;
-            }
-            .content-wrapper {
-                padding: 25px;
-            }
-            .flower-border1 {
-                max-width: 200px;
-            }
-            .flower-border2 {
-                max-width: 200px;
-            }
-        }
-
-        /* Additional Media Query for Smaller Landscape Screens (e.g., older iPads) */
-        @media (min-width: 600px) and (max-width: 767px) and (orientation: landscape) {
-            .content {
-                max-width: 400px;
-                width: 75%;
-            }
-            h1 {
-                font-size: 3em;
-            }
-            h2, h3 {
-                font-size: 1.1em;
-            }
-            .rsvp-button {
-                font-size: 1em;
-                padding: 7px 14px;
-            }
-            .content-wrapper {
-                padding: 20px;
-            }
-            .flower-border1 {
-                max-width: 180px;
-            }
-            .flower-border2 {
-                max-width: 180px;
-            }
-        }
-
-        /* Media Query for Wider Displays (when width >= height) */
-        @media (min-aspect-ratio: 1/1) {
-            .content {
-                max-width: 450px;
-                width: 70%;
-            }
-            h1 {
-                font-size: 3.5em;
-            }
-            h2, h3 {
-                font-size: 1.3em;
-            }
-            .rsvp-button {
-                font-size: 1.1em;
-                padding: 8px 15px;
-            }
-            .content-wrapper {
-                padding: 25px;
-            }
-            .flower-border1 {
-                max-width: 200px;
-            }
-            .flower-border2 {
-                max-width: 200px;
-            }
-        }
     </style>
 </head>
 <body>
