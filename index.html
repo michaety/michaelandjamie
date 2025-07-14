@@ -202,31 +202,89 @@
         max-width: 120px;
     }
 }
-/* Landscape / widescreen scaling */
+/* Base styles already defined above */
+
+/* Small tablets and large phones (portrait) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2, h3 {
+        font-size: 1.1em;
+    }
+    .rsvp-button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+    .flower-border1,
+    .flower-border2 {
+        max-width: 160px;
+    }
+}
+
+/* Phones (very narrow screens) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2, h3 {
+        font-size: 1em;
+    }
+    .rsvp-button {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+    .flower-border1,
+    .flower-border2 {
+        max-width: 130px;
+    }
+}
+
+/* Wide Screens (desktop/laptop or tablets in landscape) */
 @media (min-aspect-ratio: 4/3) {
+    .content-wrapper {
+        padding: 40px;
+    }
+
     .content {
-        max-width: 500px;
-        width: 65%;
+        max-width: 550px;
     }
 
     h1 {
-        font-size: 4em;
+        font-size: 3.8vw; /* Responsive to width */
     }
 
     h2, h3 {
-        font-size: 1.5em;
+        font-size: 1.5vw;
     }
 
     .rsvp-button {
-        font-size: 1.2em;
-        padding: 10px 20px;
+        font-size: 1.2vw;
+        padding: 10px 2vw;
     }
 
     .flower-border1,
     .flower-border2 {
-        max-width: 250px;
+        max-width: 220px;
     }
 }
+
+/* Ultra-wide displays (like 21:9 monitors) */
+@media (min-aspect-ratio: 16/9) {
+    .content {
+        max-width: 600px;
+    }
+
+    h1 {
+        font-size: 3.5vw;
+    }
+
+    .flower-border1,
+    .flower-border2 {
+        max-width: 240px;
+    }
+}
+
 
     </style>
 </head>
