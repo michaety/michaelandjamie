@@ -221,43 +221,30 @@
             }
         }
 
-        /* Media Query for Wider Displays (starting at 835px) */
-        @media (min-width: 835px) {
+        /* Media Query for Wider Displays (when width >= height) */
+        @media (min-aspect-ratio: 1/1) {
             .content {
-                max-width: 600px; /* Increased to accommodate wider screens */
-                width: 70%; /* Adjusted width for better spacing */
+                max-width: 450px; /* Reduced from 500px to shrink */
+                width: 70%; /* Adjusted for balance */
             }
-            .content-wrapper {
-                padding: 40px; /* Increased padding for wider layouts */
+            h1 {
+                font-size: 3.5em; /* Reduced from 4em */
+            }
+            h2, h3 {
+                font-size: 1.3em; /* Reduced from 1.5em */
             }
             .rsvp-button {
-                padding: 12px 25px; /* Slightly larger padding for visibility */
-            }
-            .flower-border1 {
-                max-width: 300px; /* Increased for wider screens */
-            }
-            .flower-border2 {
-                max-width: 300px; /* Increased for wider screens */
-            }
-        }
-
-        /* Media Query for Very Wide Displays (e.g., 1280px and above) */
-        @media (min-width: 1280px) {
-            .content {
-                max-width: 700px; /* Further increased for very wide screens */
-                width: 60%; /* Adjusted for balance */
+                font-size: 1.1em; /* Reduced from 1.2em */
+                padding: 8px 15px; /* Slightly reduced */
             }
             .content-wrapper {
-                padding: 50px; /* More padding for larger screens */
-            }
-            .rsvp-button {
-                padding: 15px 30px; /* Larger padding for prominence */
+                padding: 25px; /* Adjusted for smaller content */
             }
             .flower-border1 {
-                max-width: 350px; /* Scaled up for very wide */
+                max-width: 225px; /* Reduced from 250px */
             }
             .flower-border2 {
-                max-width: 350px; /* Scaled up for very wide */
+                max-width: 225px; /* Reduced from 250px */
             }
         }
     </style>
