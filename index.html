@@ -320,6 +320,53 @@
         gap: 24px;
     }
 }
+/* Adjust RSVP button on ultra-wide displays */
+@media (min-aspect-ratio: 21/9) {
+  .rsvp-button {
+    white-space: nowrap; /* prevent button text wrapping */
+    max-width: 100%; /* prevent overflow */
+    box-sizing: border-box;
+  }
+
+  .content-wrapper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .content {
+    max-width: 800px;
+  }
+}
+
+/* For extreme ultra-wide */
+@media (min-aspect-ratio: 32/9) {
+  .rsvp-button {
+    font-size: 0.9vw;
+    padding: 10px 1.5vw;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  .content-wrapper {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .content {
+    max-width: 900px;
+  }
+}
+
+/* Make sure RSVP button does not overflow container */
+.rsvp-button {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
 
 .countdown-timer {
     position: static; /* remove absolute positioning */
