@@ -20,12 +20,21 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=1SU
 END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
+UID:full-wedding@wedding.com
+DTSTAMP:20250713T120000Z
+DTSTART;TZID=Australia/Sydney:20251101T160000
+DTEND;TZID=Australia/Sydney:20251102T000000
+SUMMARY:Jamie & Michael's Wedding
+LOCATION:Stargazer Lawn & 12-Micron, Sydney, NSW, Australia
+DESCRIPTION:Join us for our wedding, including the Ceremony at Stargazer Lawn (4:00 PM) and Canapés (5:30 PM) and Reception (6:30 PM–12:00 AM) at 12-Micron!
+END:VEVENT
+BEGIN:VEVENT
 UID:ceremony@wedding.com
 DTSTAMP:20250713T120000Z
 DTSTART;TZID=Australia/Sydney:20251101T160000
 DTEND;TZID=Australia/Sydney:20251101T163000
 SUMMARY:Wedding Ceremony
-LOCATION:Stargazer Lawn
+LOCATION:Stargazer Lawn, Centennial Parklands, Sydney, NSW 2021, Australia
 DESCRIPTION:Join us for the wedding ceremony at Stargazer Lawn!
 END:VEVENT
 BEGIN:VEVENT
@@ -34,16 +43,16 @@ DTSTAMP:20250713T120000Z
 DTSTART;TZID=Australia/Sydney:20251101T173000
 DTEND;TZID=Australia/Sydney:20251101T180000
 SUMMARY:Canapés
-LOCATION:12-Micron
+LOCATION:12-Micron, Tower 1, Barangaroo Ave, Barangaroo, NSW 2000, Australia
 DESCRIPTION:Enjoy drinks and bites after the ceremony!
 END:VEVENT
 BEGIN:VEVENT
 UID:reception@wedding.com
 DTSTAMP:20250713T120000Z
 DTSTART;TZID=Australia/Sydney:20251101T183000
-DTEND;TZID=Australia/Sydney:20251101T230000
+DTEND;TZID=Australia/Sydney:20251102T000000
 SUMMARY:Wedding Reception
-LOCATION:12-Micron
+LOCATION:12-Micron, Tower 1, Barangaroo Ave, Barangaroo, NSW 2000, Australia
 DESCRIPTION:Dinner, dancing, and celebration!
 END:VEVENT
 END:VCALENDAR
