@@ -437,15 +437,19 @@
             const googleLinks = [
                 {
                     name: 'Ceremony (4:00pm)',
-                    url: 'https://calendar.google.com/calendar/r/eventedit?text=Wedding+Ceremony&dates=20251101T160000/20251101T163000&details=Join+us+for+the+wedding+ceremony+at+Stargazer+Lawn!&location=Stargazer+Lawn'
+                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony&dates=20251101T160000/20251101T163000&details=Join+us+for+the+wedding+ceremony+at+Stargazer+Lawn!&location=Stargazer+Lawn&sf=true&output=xml'
                 },
                 {
                     name: 'Canapés (5:30pm)',
-                    url: 'https://calendar.google.com/calendar/r/eventedit?text=Canap%C3%A9s&dates=20251101T173000/20251101T180000&details=Enjoy+drinks+and+bites+after+the+ceremony!&location=12-Micron'
+                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Canap%C3%A9s&dates=20251101T173000/20251101T180000&details=Enjoy+drinks+and+bites+after+the+ceremony!&location=12-Micron&sf=true&output=xml'
                 },
                 {
                     name: 'Reception (6:30pm)',
-                    url: 'https://calendar.google.com/calendar/r/eventedit?text=Wedding+Reception&dates=20251101T183000/20251101T230000&details=Dinner,+dancing,+and+celebration!&location=12-Micron'
+                    url: 'https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception&dates=20251101T183000/20251101T230000&details=Dinner,+dancing,+and+celebration!&location=12-Micron&sf=true&output=xml'
+                },
+                {
+                    name: 'All Events (Download ICS)',
+                    url: icsUrl
                 }
             ];
             const addEventUrl = 'https://addevent.com/redirect/your-event-id'; // Replace with AddEvent.com URL if used
