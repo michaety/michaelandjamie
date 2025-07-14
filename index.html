@@ -154,6 +154,21 @@
             flex-wrap: wrap;
         }
 
+        .countdown-timer {
+            position: static;
+            padding: 12px 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.2em;
+            color: white;
+            white-space: nowrap;
+            user-select: none;
+            max-width: 100%;
+        }
+
         /* Responsive styles */
         @media (max-width: 1024px) {
             h1 { font-size: 3.5em; }
@@ -176,7 +191,7 @@
             }
             .content { max-width: 400px; padding: 15px; }
             .flower-border1, .flower-border2 { max-width: 160px; }
-            .countdown-timer { font-size: 0.95em; padding: 8px 18px; gap: 12px; }
+            .countdown-timer { font-size: 0.9em; padding: 8px 16px; gap: 10px; }
         }
 
         @media (max-width: 480px) {
@@ -188,7 +203,7 @@
             }
             .content { max-width: 90%; padding: 12px 15px; }
             .flower-border1, .flower-border2 { max-width: 120px; }
-            .countdown-timer { font-size: 0.85em; padding: 6px 15px; gap: 10px; flex-wrap: wrap; }
+            .countdown-timer { font-size: 0.85em; padding: 6px 12px; gap: 8px; }
         }
 
         @media (min-aspect-ratio: 4/3) {
@@ -261,21 +276,6 @@
             }
             .content-wrapper { padding-left: 100px; padding-right: 100px; }
             .content { max-width: 900px; }
-        }
-
-        .countdown-timer {
-            position: static;
-            padding: 12px 25px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 1.2em;
-            color: white;
-            white-space: nowrap;
-            user-select: none;
-            max-width: 100%;
         }
     </style>
 </head>
