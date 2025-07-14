@@ -488,5 +488,31 @@
         return gk_fileData[filename] || "";
         }
     </script>
+    <script>
+    function updateCountdown() {
+        const eventDate = new Date("November 1, 2025 16:00:00").getTime(); // 4:00pm
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance <= 0) {
+            document.getElementById("countdown").innerHTML = "<div>It's Wedding Time!</div>";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+
 </body>
 </html>
