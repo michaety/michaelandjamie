@@ -117,7 +117,7 @@
             transition: background-color 0.3s;
             text-decoration: none;
             display: inline-block;
-            z-index: 11;
+            z-index: 20; /* Increased to ensure buttons are above flower borders */
         }
 
         .rsvp-button:hover, .calendar-button:hover {
@@ -140,6 +140,7 @@
             background-repeat: no-repeat;
             background-position: right 10px center;
             background-size: 10px;
+            z-index: 20; /* Ensure dropdown is above flower borders */
         }
 
         .calendar-button select:hover {
