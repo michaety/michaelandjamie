@@ -384,18 +384,19 @@
 </head>
 <body>
     <div class="slideshow-container">
-        <div class="slide" style="background-image: url('./photos/1.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/2.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/3.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/4.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/5.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/6.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/7.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/9.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/10.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/11.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/12.jpg')"></div>
-        <div class="slide" style="background-image: url('./photos/13.jpg')"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
         <div class="overlay">
             <div class="content-wrapper">
                 <div class="content">
@@ -443,8 +444,48 @@
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
 
-        const firstImage = new Image();
-        firstImage.src = './photos/1.jpg';
+        function getDeviceOS() {
+            try {
+                const ua = navigator.userAgent.toLowerCase();
+                // Check for iOS devices (iPhone, iPad, iPod)
+                if (/iphone|ipad|ipod/.test(ua) || (navigator.maxTouchPoints > 0 && /macintosh/.test(ua)) || /mac.*os.*x.*mobile/.test(ua)) {
+                    return 'iOS';
+                }
+                // Check for Android devices
+                if (/android/.test(ua)) {
+                    return 'Android';
+                }
+                return 'Desktop';
+            } catch (e) {
+                console.error('OS detection failed:', e);
+                return 'Desktop';
+            }
+        }
+
+        function isLandscape() {
+            return window.matchMedia("(orientation: landscape)").matches || window.innerWidth > window.innerHeight;
+        }
+
+        function getImageSet() {
+            const os = getDeviceOS();
+            const isIPad = os === 'iOS' && (navigator.userAgent.includes('iPad') || (navigator.maxTouchPoints > 0 && /macintosh/.test(navigator.userAgent.toLowerCase())));
+            const isPhone = os === 'iOS' || os === 'Android';
+            const landscape = isLandscape();
+
+            if (os === 'Desktop' || (isIPad && landscape)) {
+                return Array.from({ length: 13 }, (_, i) => `./photos/${i + 1}.jpg`);
+            } else {
+                return Array.from({ length: 13 }, (_, i) => `./photos/${i + 1}_vertical.jpg`);
+            }
+        }
+
+        function updateSlideshow() {
+            const images = getImageSet();
+            slides.forEach((slide, index) => {
+                slide.style.backgroundImage = `url('${images[index]}')`;
+            });
+            showSlide(currentSlide);
+        }
 
         function showSlide(index) {
             slides.forEach((slide, i) => {
@@ -457,16 +498,21 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            showSlide(0);
-        });
-
         function nextSlide() {
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
         }
 
-        setInterval(nextSlide, 7000);
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstImage = new Image();
+            firstImage.src = getImageSet()[0];
+            updateSlideshow();
+            setInterval(nextSlide, 7000);
+
+            // Update slideshow on orientation change
+            window.matchMedia("(orientation: landscape)").addEventListener('change', updateSlideshow);
+            window.addEventListener('resize', updateSlideshow);
+        });
     </script>
     <script type="text/javascript">
         var gk_isXlsx = false;
@@ -585,18 +631,6 @@
             document.getElementById("seconds").textContent = seconds;
         }
 
-        function getDeviceOS() {
-            try {
-                const ua = navigator.userAgent.toLowerCase();
-                if (/iphone|ipad|ipod/.test(ua)) return 'iOS';
-                if (/android/.test(ua)) return 'Android';
-                return 'Desktop';
-            } catch (e) {
-                console.error('OS detection failed:', e);
-                return 'Desktop';
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             const eventDate = new Date("November 1, 2025 16:00:00").getTime();
             const now = new Date().getTime();
@@ -608,7 +642,7 @@
                 setInterval(updateCountdown, 1000);
             }
 
-            // Remove links on mobile devices
+            // Remove links on mobile devices (iOS and Android, including iPads)
             const os = getDeviceOS();
             if (os === 'iOS' || os === 'Android') {
                 const dateLink = document.getElementById('date-link');
@@ -620,7 +654,7 @@
                 receptionLink.innerHTML = '12-Micron';
             }
 
-            // Show "Add to Calendar" button only on mobile devices
+            // Show "Add to Calendar" button on iOS (including iPads) and Android
             const calendarLink = document.getElementById('calendarLink');
             if (os === 'iOS' || os === 'Android') {
                 calendarLink.classList.remove('hidden');
