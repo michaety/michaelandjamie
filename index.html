@@ -73,7 +73,7 @@
         .flower-border2 {
             position: absolute;
             bottom: 0;
-            right: 0;
+            right: 10px; /* Shifted right to avoid button overlap */
             width: 50%;
             max-width: 225px;
             z-index: 10;
@@ -290,7 +290,8 @@
                 padding: 8px 14px;
             }
             .content { max-width: 400px; padding: 15px; }
-            .flower-border1, .flower-border2 { max-width: 150px; } /* Reduced to avoid button overlap */
+            .flower-border1 { max-width: 150px; }
+            .flower-border2 { max-width: 120px; } /* Reduced to avoid button overlap */
             .countdown-timer { font-size: 0.9em; padding: 8px 16px; gap: 10px; }
             .desktop-link:hover {
                 animation: none; /* Disable sparkle animation on mobile */
@@ -308,7 +309,8 @@
                 padding: 6px 12px;
             }
             .content { max-width: 90%; padding: 12px 15px; }
-            .flower-border1, .flower-border2 { max-width: 100px; } /* Further reduced for small screens */
+            .flower-border1 { max-width: 100px; }
+            .flower-border2 { max-width: 80px; } /* Further reduced for small screens */
             .countdown-timer { font-size: 0.8em; padding: 6px 12px; gap: 8px; }
         }
 
