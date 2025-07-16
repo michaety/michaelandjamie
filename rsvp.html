@@ -11,8 +11,24 @@
             padding: 0;
             height: 100%;
             font-family: 'Arial', sans-serif;
-            background: url('./photos/8.jpg') no-repeat center center fixed;
+            overflow: hidden; /* Prevent body scroll */
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 800vh; /* 8 images x 100vh to accommodate all */
             background-size: cover;
+            background-repeat: repeat-y;
+            animation: scrollBackground 180s linear infinite; /* Increased to 180s for slower scrolling */
+            z-index: 0;
+        }
+
+        @keyframes scrollBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 -700vh; } /* 7 images height (100vh each) */
         }
 
         .overlay {
@@ -20,11 +36,13 @@
             background: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Changed to flex-start for scrolling */
+            align-items: flex-start;
             color: white;
             text-align: center;
-            overflow-y: auto; /* Enable vertical scrolling */
-            padding-bottom: 20px; /* Ensure space for content at bottom */
+            overflow-y: auto;
+            padding-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .content {
@@ -53,69 +71,42 @@
         .form-container iframe {
             width: 100%;
             max-width: 640px;
-            height: 750px; /* Increased by 50px */
+            height: 750px;
             border: none;
         }
 
         /* Media Query for First Breakpoint (768px width) */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 3em;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .form-container iframe {
-                height: 650px; /* Increased by 50px */
-            }
+            h1 { font-size: 3em; }
+            .form-container { padding: 15px; }
+            .form-container iframe { height: 650px; }
         }
 
         /* Media Query for Second Breakpoint (480px width) */
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2.5em;
-            }
-            .form-container iframe {
-                height: 550px; /* Increased by 50px */
-            }
+            h1 { font-size: 2.5em; }
+            .form-container iframe { height: 550px; }
         }
 
         /* Media Query for iPad Landscape (1024x768 and smaller landscape screens) */
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-            .content {
-                max-width: 450px;
-                width: 80%;
-            }
-            h1 {
-                font-size: 3.5em;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .form-container iframe {
-                height: 600px; /* Increased by 50px */
-            }
+            .content { max-width: 450px; width: 80%; }
+            h1 { font-size: 3.5em; }
+            .form-container { padding: 15px; }
+            .form-container iframe { height: 600px; }
         }
 
         /* Additional Media Query for Smaller Landscape Screens (e.g., older iPads) */
         @media (min-width: 600px) and (max-width: 767px) and (orientation: landscape) {
-            .content {
-                max-width: 400px;
-                width: 75%;
-            }
-            h1 {
-                font-size: 3em;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .form-container iframe {
-                height: 500px; /* Increased by 50px */
-            }
+            .content { max-width: 400px; width: 75%; }
+            h1 { font-size: 3em; }
+            .form-container { padding: 15px; }
+            .form-container iframe { height: 500px; }
         }
     </style>
 </head>
 <body>
+    <div class="background" style="background-image: url('https://res.cloudinary.com/dt2mvxisp/image/upload/40.jpg'), url('https://res.cloudinary.com/dt2mvxisp/image/upload/41.jpg'), url('https://res.cloudinary.com/dt2mvxisp/image/upload/42.jpg'), url('https://res.cloudinary.com/dt2mvxisp/image/upload/43.jpg'), url('https://res.cloudinary.com/dt2mvxisp/image/upload/44.jpg'), url('https://res.cloudinary.com/dt2mvxisp/image/upload/45.jpg'), url('https://res.cloudinary.com/dt2mvxisp/image/upload/46.jpg'), url('https://res.cloudinary.com/dt2mvxisp/image/upload/47.jpg'); background-position: 0 0, 0 100vh, 0 200vh, 0 300vh, 0 400vh, 0 500vh, 0 600vh, 0 700vh;"></div>
     <div class="overlay">
         <div class="content">
             <h1>RSVP</h1>
