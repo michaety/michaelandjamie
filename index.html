@@ -424,15 +424,17 @@
 
         function updateSlideshow() {
             const images = getImageSet();
+            const maxSlides = Math.max(18, 21); // Use the maximum number of slides based on device
             slides.forEach((slide, index) => {
-                slide.style.backgroundImage = `url('${images[index]}')`;
-                const img = new Image();
-                img.src = images[index];
-                img.onerror = () => {
-                    console.error(`Failed to load image: ${images[index]}`);
-                    slide.style.backgroundImage = 'url(./photos/border1.png)';
-                };
-                img.onload = () => console.log(`Successfully loaded image: ${images[index]}`);
+                if (index < images.length) {
+                    slide.style.backgroundImage = `url('${images[index]}')`;
+                    const img = new Image();
+                    img.src = images[index];
+                    img.onerror = () => console.error(`Failed to load image: ${images[index]}`);
+                    img.onload = () => console.log(`Successfully loaded image: ${images[index]}`);
+                } else {
+                    slide.style.backgroundImage = 'none'; // Hide extra slides
+                }
             });
             showSlide(currentSlide);
         }
@@ -449,7 +451,7 @@
         }
 
         function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
+            currentSlide = (currentSlide + 1) % Math.max(18, getImageSet().length); // Cycle based on actual image count
             showSlide(currentSlide);
         }
 
