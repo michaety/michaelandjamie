@@ -20,11 +20,13 @@
             background: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Changed to flex-start for scrolling */
+            align-items: flex-start;
             color: white;
             text-align: center;
-            overflow-y: auto; /* Enable vertical scrolling */
-            padding-bottom: 20px; /* Ensure space for content at bottom */
+            overflow-y: auto;
+            padding-bottom: 20px;
+            background: url('./photos/border1.png') top left no-repeat, url('./photos/border2.png') bottom right no-repeat;
+            background-size: contain, contain;
         }
 
         .content {
@@ -33,13 +35,21 @@
             width: 90%;
             margin: 0 auto;
             position: relative;
+            z-index: 2;
         }
 
         h1 {
             font-family: 'Great Vibes', cursive;
             font-size: 4em;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .form-container {
@@ -53,65 +63,45 @@
         .form-container iframe {
             width: 100%;
             max-width: 640px;
-            height: 750px; /* Increased by 50px */
+            min-height: 750px; /* Minimum height, will adjust with content */
             border: none;
         }
 
         /* Media Query for First Breakpoint (768px width) */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 3em;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .form-container iframe {
-                height: 650px; /* Increased by 50px */
-            }
+            h1 { font-size: 3em; }
+            h2 { font-size: 1.2em; }
+            .form-container { padding: 15px; }
+            .form-container iframe { min-height: 650px; }
+            .overlay { background-size: 150px, 150px; } /* Adjust border sizes for mobile */
         }
 
         /* Media Query for Second Breakpoint (480px width) */
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2.5em;
-            }
-            .form-container iframe {
-                height: 550px; /* Increased by 50px */
-            }
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1em; }
+            .form-container iframe { min-height: 550px; }
+            .overlay { background-size: 100px, 100px; } /* Smaller borders on very small screens */
         }
 
         /* Media Query for iPad Landscape (1024x768 and smaller landscape screens) */
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-            .content {
-                max-width: 450px;
-                width: 80%;
-            }
-            h1 {
-                font-size: 3.5em;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .form-container iframe {
-                height: 600px; /* Increased by 50px */
-            }
+            .content { max-width: 450px; width: 80%; }
+            h1 { font-size: 3.5em; }
+            h2 { font-size: 1.3em; }
+            .form-container { padding: 15px; }
+            .form-container iframe { min-height: 600px; }
+            .overlay { background-size: 200px, 200px; } /* Larger borders for landscape */
         }
 
         /* Additional Media Query for Smaller Landscape Screens (e.g., older iPads) */
         @media (min-width: 600px) and (max-width: 767px) and (orientation: landscape) {
-            .content {
-                max-width: 400px;
-                width: 75%;
-            }
-            h1 {
-                font-size: 3em;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .form-container iframe {
-                height: 500px; /* Increased by 50px */
-            }
+            .content { max-width: 400px; width: 75%; }
+            h1 { font-size: 3em; }
+            h2 { font-size: 1.2em; }
+            .form-container { padding: 15px; }
+            .form-container iframe { min-height: 500px; }
+            .overlay { background-size: 180px, 180px; }
         }
     </style>
 </head>
