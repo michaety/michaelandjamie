@@ -23,20 +23,19 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 800vh;
       z-index: 0;
-      animation: scrollBackground 180s linear infinite;
       display: flex;
       flex-direction: column;
+      animation: scrollBackground 480s linear infinite;
     }
 
-    .background-scroll .bg-image {
-      flex: 0 0 100vh; /* Each image takes up full viewport height */
+    .bg-image {
+      flex: 0 0 100vh;
       width: 100%;
       overflow: hidden;
     }
 
-    .background-scroll img {
+    .bg-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -51,6 +50,7 @@
 .background-scroll {
   animation: scrollBackground 480s linear infinite; /* Slower scroll */
 }
+
 
     .overlay {
       position: fixed;
@@ -104,7 +104,6 @@
 
     @media (max-width: 768px) {
       h1 { font-size: 3em; }
-      .form-container { padding: 15px; }
       .form-container iframe { height: 650px; }
     }
 
@@ -112,31 +111,19 @@
       h1 { font-size: 2.5em; }
       .form-container iframe { height: 550px; }
     }
-
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-      .content { max-width: 450px; width: 80%; }
-      h1 { font-size: 3.5em; }
-      .form-container iframe { height: 600px; }
-    }
-
-    @media (min-width: 600px) and (max-width: 767px) and (orientation: landscape) {
-      .content { max-width: 400px; width: 75%; }
-      h1 { font-size: 3em; }
-      .form-container iframe { height: 500px; }
-    }
   </style>
 </head>
 <body>
 
   <div class="background-scroll">
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/40.jpg" alt="" /></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/41.jpg" alt="" /></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/42.jpg" alt="" /></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/43.jpg" alt="" /></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/44.jpg" alt="" /></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/45.jpg" alt="" /></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/46.jpg" alt="" /></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/47.jpg" alt="" /></div>
+    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/40.jpg" alt=""/></div>
+    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/41.jpg" alt=""/></div>
+    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/42.jpg" alt=""/></div>
+    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/43.jpg" alt=""/></div>
+    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/44.jpg" alt=""/></div>
+    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/45.jpg" alt=""/></div>
+    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/46.jpg" alt=""/></div>
+    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/47.jpg" alt=""/></div>
   </div>
 
   <div class="overlay">
