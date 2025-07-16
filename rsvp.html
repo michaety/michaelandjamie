@@ -6,6 +6,14 @@
   <title>RSVP - Our Wedding</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+    /* Preload font to ensure it loads */
+    @font-face {
+      font-family: 'Great Vibes Fallback';
+      src: local('Arial'); /* Temporary fallback if Google Fonts fails */
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -23,34 +31,20 @@
       top: 0;
       left: 0;
       width: 100%;
+      height: auto; /* Auto height to fit the long image */
+      min-height: 100vh; /* Ensure container is visible */
+      background-size: 100% auto; /* Keep width at 100%, height adjusts proportionally */
+      background-repeat: repeat-y; /* Ensure seamless vertical repeat if needed */
+      background-image: url('https://res.cloudinary.com/dt2mvxisp/image/upload/collage.webp'); /* Updated to .webp */
+      background-position: 0 0;
+      animation: scrollBackground 220s linear infinite; /* Slowed to 220s */
       z-index: 0;
-      display: flex;
-      flex-direction: column;
-      animation: scrollBackground 480s linear infinite;
     }
 
-    .bg-image {
-      flex: 0 0 100vh;
-      width: 100%;
-      overflow: hidden;
+    @keyframes scrollBackground {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100%; } /* Reversed to scroll upward */
     }
-
-    .bg-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-@keyframes scrollBackground {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-700vh); }
-}
-
-.background-scroll {
-  animation: scrollBackground 480s linear infinite; /* Slower scroll */
-}
-
 
     .overlay {
       position: fixed;
@@ -76,11 +70,13 @@
       position: relative;
     }
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
+    #content h1 {
+      font-family: 'Great Vibes', cursive, fantasy; /* Corrected font name */
       font-size: 4em;
       margin-bottom: 10px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      color: white; /* Reverted to white */
+      /* Check Network tab in DevTools (F12 > Network, filter for collage.webp) and Console for errors */
     }
 
     h2 {
@@ -111,23 +107,18 @@
       h1 { font-size: 2.5em; }
       .form-container iframe { height: 550px; }
     }
+
+    @media (min-width: 769px) {
+      .background-scroll {
+        background-size: 100% auto; /* Keep width at 100%, height adjusts proportionally on desktop */
+      }
+    }
   </style>
 </head>
 <body>
-
-  <div class="background-scroll">
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/40.jpg" alt=""/></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/41.jpg" alt=""/></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/42.jpg" alt=""/></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/43.jpg" alt=""/></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/44.jpg" alt=""/></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/45.jpg" alt=""/></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/46.jpg" alt=""/></div>
-    <div class="bg-image"><img src="https://res.cloudinary.com/dt2mvxisp/image/upload/47.jpg" alt=""/></div>
-  </div>
-
+  <div class="background-scroll"></div>
   <div class="overlay">
-    <div class="content">
+    <div class="content" id="content">
       <h1>RSVP</h1>
       <h2>Celebrating 10 years together</h2>
       <div class="form-container">
@@ -137,6 +128,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>
